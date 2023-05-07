@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,700;1,400;1,800&display=swap" rel="stylesheet">
+  
+  <title>Age calculator app</title>
+</head>
+<body>
+  <div class="container">
+    <form action="" class="container__form">
+      <div class="container__form-inputs">
+        <div class="container__form-inputs-block">
+          <label for="day" class="container__form-label" id="day-label">DAY</label>
+          <input type="number" placeholder="DD" name="day" id="day" class="container__form-input">
+          <p class="container__form-underText" id="day-underText"></p>
+        </div>
+        <div class="container__form-inputs-block">
+          <label for="month" class="container__form-label" id="month-label">MONTH</label>
+          <input type="number" placeholder="MM" name="month" id="month" class="container__form-input">
+          <p class="container__form-underText" id="month-underText"></p>
+        </div>
+        <div class="container__form-inputs-block">
+          <label for="year" class="container__form-label" id="year-label">YEAR</label>
+          <input type="number" placeholder="YYYY" name="year" id="year" class="container__form-input">
+          <p class="container__form-underText" id="year-underText"></p>
+        </div>
+      </div>
+      <div class="container__form-submit-block">
+        <hr class="line">
+        <div class="container__form-submit"><img class="container__form-submit-img" src="./assets/images/icon-arrow.svg" alt="arrow"></div>
+      </div>
+    </form>
+    <p class="container__form-text off-black italic"><span class="container__form-output purple italic" id="years">--</span>years</p>
+    <p class="container__form-text off-black italic"><span class="container__form-output purple italic" id="months">--</span>months</p>
+    <p class="container__form-text off-black italic"><span class="container__form-output purple italic" id="days">--</span>days</p>
+  </div>
+  
+  <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a target="_blank" href="https://github.com/spiritosantoo">spiritosantoo</a>.
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
