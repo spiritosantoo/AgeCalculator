@@ -7,32 +7,29 @@ btn.addEventListener('click', () => {
    function daysInMonth(month, year) {
       return new Date(year, month, 0).getDate();
    }
+   function isWrong (id, inner, text) {
+      document.querySelector(`#${id}`).style.borderColor = "hsl(0, 100%, 67%)";
+      document.querySelector(`#${id}-label`).style.color = "hsl(0, 100%, 67%)";
+      document.querySelector(`#${id}-underText`).style.animation = "shake 0.3s";
+      document.querySelector(`#${id}`).style.animation = "shake 0.3s";
+      setTimeout (() => {
+         document.querySelector(`#${id}-underText`).style.animation = null;
+         document.querySelector(`#${id}`).style.animation = null;
+      }, 310)
+      document.querySelector(inner).innerHTML = text
+      return '--'
+   }
    function isValid (arg, id){
       if (!arg){
-         document.querySelector(`#${id}`).style.borderColor = "hsl(0, 100%, 67%)";
-         document.querySelector(`#${id}-label`).style.color = "hsl(0, 100%, 67%)";
-         document.querySelector(`#${id}-underText`).innerHTML = 'This field is required'
-         return '--'
+         return isWrong (id, `#${id}-underText`, 'This field is required')
       } else if (id === 'year' && arg > 2023 || date > now){
-         document.querySelector(`#${id}`).style.borderColor = "hsl(0, 100%, 67%)";
-         document.querySelector(`#${id}-label`).style.color = "hsl(0, 100%, 67%)";
-         document.querySelector(`#day-underText`).innerHTML = 'Must be in the past'
-         return '--'
+         return isWrong (id, `#day-underText`, 'Must be in the past')
       } else if (id === 'month' && arg > 12){
-         document.querySelector(`#${id}`).style.borderColor = "hsl(0, 100%, 67%)";
-         document.querySelector(`#${id}-label`).style.color = "hsl(0, 100%, 67%)";
-         document.querySelector(`#${id}-underText`).innerHTML = 'Must be a valid month'
-         return '--'
+         return isWrong (id, `#${id}-underText`, 'Must be a valid month')
       } else if (id === 'day' && arg > 31){
-         document.querySelector(`#${id}`).style.borderColor = "hsl(0, 100%, 67%)";
-         document.querySelector(`#${id}-label`).style.color = "hsl(0, 100%, 67%)";
-         document.querySelector(`#${id}-underText`).innerHTML = 'Must be a valid day'
-         return '--'
+         return isWrong (id, `#${id}-underText`, 'Must be a valid day')
       } else if (daysInMonth(month, year) < +day){
-         document.querySelector(`#${id}`).style.borderColor = "hsl(0, 100%, 67%)";
-         document.querySelector(`#${id}-label`).style.color = "hsl(0, 100%, 67%)";
-         document.querySelector(`#day-underText`).innerHTML = 'Must be a valid date'
-         return '--'
+         return isWrong (id, `#day-underText`, 'Must be in the date')
       } else {
          document.querySelector(`#${id}`).style.borderColor = "hsl(0, 0%, 86%)";
          document.querySelector(`#${id}-label`).style.color = "hsl(0, 1%, 44%)";
@@ -50,8 +47,8 @@ btn.addEventListener('click', () => {
             else if (id === 'month') return differenceInMonths;
             else return differenceInDays;
       }
-
    }
+
    let year = document.querySelector('#year').value,
       month = document.querySelector('#month').value,
       day = document.querySelector('#day').value 
@@ -62,8 +59,4 @@ btn.addEventListener('click', () => {
    years.innerHTML = isValid(year, 'year')
    months.innerHTML = isValid(month, 'month')
    days.innerHTML = isValid(day, 'day')
-
-   
-
-   
 })

@@ -147,6 +147,12 @@ input[type="number"]{
    letter-spacing: 15px;
 }
 
+@keyframes shake {
+   25% {transform: translateX(2px);}
+   50% {transform: translateX(-2px);}
+   75% {transform: translateX(2px);}
+}
+
 @media (max-width: 650px) {
    .container{
       width: 80%;
